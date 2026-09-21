@@ -13,3 +13,20 @@ export const financed=(g:Goal)=>Math.max(0,g.price-g.tradeIn-g.extraDown);
 export const bikeMonthly=(g:Goal)=>installment(financed(g),g.rate,g.months)+g.fuelMonthly+g.otherMonthly;
 export const safeId=()=>globalThis.crypto?.randomUUID?.()??`${Date.now()}-${Math.random().toString(36).slice(2)}`;
 export function futureProjection(d:AppData,start:string,months=12){let cash=d.openingBalances[start]??0;const out:{month:string;opening:number;received:number;toPay:number;expected:number;withBike:number}[]=[];for(let i=0;i<months;i++){const month=monthShift(start,i);const e=entriesFor(d,month);const x=monthTotals(e);const opening=cash;cash+=x.paidIncome-x.paidExpense-x.pendingExpense;out.push({month,opening,received:x.paidIncome,toPay:x.paidExpense+x.pendingExpense,expected:cash,withBike:cash-bikeMonthly(d.goal)-d.goal.reserve});}return out;}
+
+export type EntryKindFilter='all'|'income'|'expense';
+export type EntryStatusFilter='all'|'paid'|'pending';
+const searchKey=(s:string)=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('pt-BR');
+export function filterEntries(entries:Entry[],query:string,kind:EntryKindFilter='all',status:EntryStatusFilter='all'){
+  const needle=searchKey(query.trim());
+  return entries.filter(e=>(kind==='all'||e.kind===kind)&&(status==='all'||e.status===status)&&(!needle||searchKey([e.name,e.category,e.note??''].join(' ')).includes(needle)));
+}
+export function dueBills(entries:Entry[],today=localDay(),windowDays=7){
+  const cutoff=new Date(`${today}T12:00:00`);
+  cutoff.setDate(cutoff.getDate()+windowDays);
+  const until=localDay(cutoff);
+  const bills=entries.filter(e=>e.kind==='expense'&&e.status==='pending'&&e.dueDate&&e.dueDate<=until).sort((a,b)=>(a.dueDate??'').localeCompare(b.dueDate??''));
+  const overdue=bills.filter(e=>(e.dueDate??'')<today);
+  const upcoming=bills.filter(e=>(e.dueDate??'')>=today);
+  return {overdue,upcoming,overdueAmount:overdue.reduce((n,e)=>n+e.amount,0),upcomingAmount:upcoming.reduce((n,e)=>n+e.amount,0)};
+}
