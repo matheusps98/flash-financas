@@ -2,3 +2,20 @@
 @media(max-width:1150px){.summary-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:760px){.desktop-nav{display:none}.topbar{height:61px;padding:0 19px}.mobile-brand{display:flex;font-size:15px}.mobile-menu{display:block;margin-left:auto}.top-right{margin-left:9px}.offline{display:none}.content{padding:24px 16px 104px}.page-head{margin-bottom:20px}.page-head h1{font-size:28px}.page-head p{font-size:12px;max-width:310px}.month-nav{max-width:none}.bottom-nav{display:flex;position:fixed;bottom:0;left:0;right:0;padding:9px 8px max(10px,env(safe-area-inset-bottom));border-top:1px solid #283950;background:#0e192c;z-index:20;justify-content:space-around}.bottom-nav button{background:transparent;color:#7f91b1;border:0;min-width:0;flex:1;display:flex;align-items:center;flex-direction:column;gap:5px;font-size:9px;padding:4px 2px}.bottom-nav button.active{color:#52e2ad}.mobile-dropdown{display:flex;flex-direction:column;gap:2px;position:absolute;right:18px;top:58px;background:#17263e;border:1px solid #354760;z-index:23;padding:8px;border-radius:12px;box-shadow:0 12px 35px #0006}.mobile-dropdown button{border:0;background:transparent;color:#d7e3f5;display:flex;align-items:center;gap:8px;padding:9px 18px;text-align:left}.hero-card{padding:20px 18px}.hero-mini{gap:26px}.panel{padding:17px}.summary-grid{gap:9px}.metric{padding:14px;min-height:92px}.metric strong{font-size:16px}.projection-list{grid-template-columns:1fr}.toast{bottom:95px}.overlay{padding:12px;align-items:flex-end}.modal{border-radius:18px 18px 0 0;max-height:92vh;padding:19px;padding-bottom:max(25px,env(safe-area-inset-bottom))}}
 @media(max-width:420px){.entry-line{gap:8px}.entry-icon{width:29px;height:29px}.entry-right>strong{font-size:11px}.row-actions button{font-size:9px;padding:5px 6px}.filters-bar>div{gap:6px;flex-direction:column;align-items:flex-start}.page-head .head-add{padding:10px}.field-grid{grid-template-columns:1fr}.goal-results strong{font-size:18px}.hero-mini{gap:14px}}
+
+/* V1.1: contas a vencer e filtros de lançamentos */
+.due-panel{border-color:#4d5945;background:linear-gradient(135deg,#222d36,#142437)}
+.due-summary{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:10px}
+.due-summary span{border:1px solid #386057;background:#173b3d;border-radius:8px;padding:7px 10px;color:#a7e8d2;font-size:11px;font-weight:700}
+.due-summary .due-overdue{background:#402a35;border-color:#754857;color:#ffc1c5}
+.due-item{display:flex;justify-content:space-between;align-items:center;gap:12px;border-top:1px solid #34415a;padding:11px 0;font-size:12px}
+.due-item>div{display:flex;flex-direction:column;gap:4px;min-width:0}
+.due-item>div strong{overflow-wrap:anywhere}
+.due-item small{color:#a0b0c8}
+.due-item>strong{white-space:nowrap;font-size:12px}
+.search-panel{padding-bottom:12px}
+.search-panel>.field{margin-bottom:10px}
+.filter-controls{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.filter-footer{display:flex;justify-content:space-between;align-items:center;gap:10px;border-top:1px solid #2c3e55;padding-top:10px;margin-top:2px;color:#a5b6cc;font-size:11px}
+.filter-footer .btn{min-height:32px;padding:7px 11px}
+@media(max-width:420px){.due-panel .section-head{align-items:flex-start;flex-wrap:wrap}.due-panel .section-head .btn{white-space:normal}.filter-controls{gap:7px}.filter-controls .field{min-width:0}.filter-controls select{font-size:12px;padding:10px 7px}}
