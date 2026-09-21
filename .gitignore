@@ -1,0 +1,7 @@
+node_modules/
+dist/
+android/
+*.apk
+.env*
+.DS_Store
+.test-dist/
