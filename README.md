@@ -19,6 +19,17 @@ No primeiro acesso você pode selecionar **Carregar rascunho de setembro/2026**.
 
 **Privacidade:** a planilha original com os seus dados pessoais não está incluída no repositório nem no ZIP. Apenas os valores selecionados para o rascunho opcional estão no código-fonte. Se não quiser que eles apareçam no repositório, desative/remova `src/sample.ts` antes de publicar.
 
+## Novidades da versão 1.1
+
+- Painel exibe contas pendentes vencidas e com vencimento nos próximos sete dias no mês atual, com valores e atalho para conferir as pendências. Os avisos aparecem **dentro do app**, não são notificações do Android.
+- Tela Lançamentos: busca por nome, categoria e observação, filtros por receita/despesa e pago/pendente, contagem de resultados, ordenação com pendências primeiro e vencimento mais próximo e botão para limpar filtros.
+- Impede alterar o saldo de referência de um mês já fechado.
+- Novos testes automatizados para pesquisa e datas de vencimento. Dados existentes continuam no mesmo formato.
+
+### Atenção ao atualizar o APK
+
+O workflow produz um **APK debug**. O GitHub Actions pode gerar uma chave de assinatura debug diferente em cada execução. Se o Android recusar a atualização sobre o app instalado, **não desinstale antes de exportar o backup criptografado** em Ajustes e confirmar que o arquivo foi guardado fora do aparelho. Uma desinstalação apaga o cofre local. Para instalar sem perda dos dados, configure futuramente uma chave estável de assinatura. Se precisar reinstalar, crie o cofre com o mesmo e-mail e senha e restaure o backup, conferindo os lançamentos.
+
 ## Criar o repositório pelo celular (Termux)
 
 1. Instale o **Termux atualizado** pela fonte oficial e abra o app. Permita acesso ao armazenamento:
