@@ -1,6 +1,6 @@
 {
   "name": "flash-financas",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -17,7 +17,8 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "@capacitor/filesystem": "^7.0.0",
-    "@capacitor/share": "^7.0.0"
+    "@capacitor/share": "^7.0.0",
+    "@capacitor-community/safe-area": "^7.0.0"
   },
   "devDependencies": {
     "@types/react": "^19.1.0",
