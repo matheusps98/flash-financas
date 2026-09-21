@@ -30,6 +30,16 @@ No primeiro acesso você pode selecionar **Carregar rascunho de setembro/2026**.
 
 O workflow produz um **APK debug**. O GitHub Actions pode gerar uma chave de assinatura debug diferente em cada execução. Se o Android recusar a atualização sobre o app instalado, **não desinstale antes de exportar o backup criptografado** em Ajustes e confirmar que o arquivo foi guardado fora do aparelho. Uma desinstalação apaga o cofre local. Para instalar sem perda dos dados, configure futuramente uma chave estável de assinatura. Se precisar reinstalar, crie o cofre com o mesmo e-mail e senha e restaure o backup, conferindo os lançamentos.
 
+## Versão 1.2: nova experiência mobile
+
+- Visual escuro inspirado em aplicativos bancários, com card de saldo em gradiente suave, atalhos para novo lançamento, extrato e projeção e barras reais de despesas por categoria. O gráfico usa lançamentos cadastrados (pagos e pendentes), não valores fictícios.
+- Navegação inferior em formato flutuante, botões e modais com animações suaves. Respeita a preferência de acessibilidade do Android por movimento reduzido.
+- Corrige a sobreposição do cabeçalho e dos controles com a barra de notificações e a barra de navegação do Android. Utiliza `@capacitor-community/safe-area` na versão para Capacitor 7, configurado para acomodar a WebView dentro da área segura, com `env(safe-area-inset-*)` como suporte CSS. O comportamento final deve ser conferido no aparelho após instalar o APK.
+- Os tipos de dados, chave do cofre, senha, criptografia, lançamentos e backup não foram alterados.
+- Para usar a versão no celular, baixe o artefato da execução **mais recente bem-sucedida** no Actions; commits intermediários também podem iniciar builds.
+
+**IMPORTANTE antes de atualizar:** exporte um backup criptografado em Ajustes e confirme que salvou fora do app. Os APKs debug do GitHub Actions podem ter assinaturas diferentes entre execuções. Se o Android recusar a atualização, não desinstale o aplicativo até ter um backup válido: desinstalar apaga os dados locais. Se reinstalar, restaure o backup utilizando a mesma senha do cofre.
+
 ## Criar o repositório pelo celular (Termux)
 
 1. Instale o **Termux atualizado** pela fonte oficial e abra o app. Permita acesso ao armazenamento:
