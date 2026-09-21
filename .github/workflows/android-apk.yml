@@ -21,8 +21,11 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '21'
-      - name: Configurar Android SDK
-        uses: android-actions/setup-android@v3
+      - name: Usar Android SDK preinstalado no runner
+        run: |
+          echo "ANDROID_HOME=${ANDROID_HOME}"
+          test -d "${ANDROID_HOME}"
+          echo "sdk.dir=${ANDROID_HOME}" > /tmp/flash-financas-android-sdk.properties
       - name: Instalar dependências e compilar React
         run: |
           npm install --no-audit --no-fund
